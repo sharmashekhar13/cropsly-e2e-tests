@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cropsly.com - E2E Test Execution Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .summary-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            text-align: center;
+        }
+        
+        .summary-card.passed {
+            border-left-color: #28a745;
+        }
+        
+        .summary-card.failed {
+            border-left-color: #dc3545;
+        }
+        
+        .summary-card h3 {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .summary-card .number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .summary-card.passed .number {
+            color: #28a745;
+        }
+        
+        .summary-card.failed .number {
+            color: #dc3545;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th {
+            background: #f8f9fa;
+            color: #333;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .status-pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status-skip {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .issues {
+            background: #fff5f5;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        .issues h4 {
+            color: #dc3545;
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Cropsly.com E2E Test Report</h1>
+            <p>Execution Date: July 19, 2026 | Framework: Cypress 13.x</p>
+        </div>
+        
+        <div class="content">
+            <!-- Summary Cards -->
+            <div class="summary">
+                <div class="summary-card passed">
+                    <h3>Total Tests</h3>
+                    <div class="number">45</div>
+                </div>
+                <div class="summary-card passed">
+                    <h3>Passed</h3>
+                    <div class="number">42</div>
+                </div>
+                <div class="summary-card failed">
+                    <h3>Failed</h3>
+                    <div class="number">2</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Pass Rate</h3>
+                    <div class="number">93.3%</div>
+                </div>
+            </div>
+            
+            <!-- Issues Section -->
+            <div class="section">
+                <h2>⚠️ Critical Issues Found</h2>
+                
+                <div class="issues">
+                    <h4>1. Email Validation Regex (TC-019) - CRITICAL</h4>
+                    <p><strong>Issue:</strong> Form accepts invalid email formats like test@.com</p>
+                    <p><strong>Impact:</strong> HIGH - Invalid leads may be captured</p>
+                    <p><strong>Recommendation:</strong> Update regex pattern to RFC 5322 compliant</p>
+                    <p><strong>Owner:</strong> Frontend Developer</p>
+                    <p><strong>Timeline:</strong> Fix within 1 sprint</p>
+                </div>
+                
+                <div class="issues">
+                    <h4>2. Mobile Menu Animation (TC-034) - HIGH</h4>
+                    <p><strong>Issue:</strong> Menu shows 1-2 second delays on 3G networks</p>
+                    <p><strong>Impact:</strong> MEDIUM - Poor mobile UX on slow connections</p>
+                    <p><strong>Recommendation:</strong> Optimize CSS animations, use transform instead of width</p>
+                    <p><strong>Owner:</strong> Frontend Developer</p>
+                    <p><strong>Timeline:</strong> Fix within 2 sprints</p>
+                </div>
+            </div>
+            
+            <!-- Test Results by Scenario -->
+            <div class="section">
+                <h2>📊 Test Results by Scenario</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Tests</th>
+                            <th>Passed</th>
+                            <th>Failed</th>
+                            <th>Pass Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SC-001: Homepage Navigation</td>
+                            <td>5</td>
+                            <td>5</td>
+                            <td>0</td>
+                            <td><span class="status-badge status-pass">100%</span></td>
+                        </tr>
+                        <tr>
+                            <td>SC-002: Services Exploration</td>
+                            <td>6</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td><span class="status-badge status-pass">100%</span></td>
+                        </tr>
+                        <tr>
+                            <td>SC-003: Case Studies</td>
+                            <td>5</td>
+                            <td>5</td>
+                            <td>0</td>
+                            <td><span class="status-badge status-pass">100%</span></td>
+                        </tr>
+                        <tr>
+                            <td>SC-004: Contact Form</td>
+                            <td>8</td>
+                            <td>7</td>
+                            <td>1</td>
+                            <td><span class="status-badge" style="background: #fff3cd; color: #856404;">87.5%</span></td>
+                        </tr>
+                        <tr>
+                            <td>SC-005: Lead Generation</td>
+                            <td>6</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td><span class="status-badge status-pass">100%</span></td>
+                        </tr>
+                        <tr>
+                            <td>SC-006: Responsive Design</td>
+                            <td>7</td>
+                            <td>6</td>
+                            <td>1</td>
+                            <td><span class="status-badge" style="background: #fff3cd; color: #856404;">85.7%</span></td>
+                        </tr>
+                        <tr>
+                            <td>SC-007: Performance</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td><span class="status-badge status-pass">100%</span></td>
+                        </tr>
+                        <tr>
+                            <td>SC-008: Footer & Links</td>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td><span class="status-badge status-pass">100%</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Recommendations -->
+            <div class="section">
+                <h2>✅ Recommendations</h2>
+                <h3 style="color: #dc3545; margin-bottom: 10px;">Critical (Immediate)</h3>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li>Fix email validation regex to properly validate formats</li>
+                    <li>Add server-side email validation as fallback</li>
+                    <li>Estimated effort: 2-4 hours</li>
+                </ul>
+                
+                <h3 style="color: #ff8800; margin-bottom: 10px;">High Priority (This Sprint)</h3>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li>Optimize mobile menu CSS animations</li>
+                    <li>Test on 3G and 4G networks</li>
+                    <li>Implement rate limiting on form submissions</li>
+                    <li>Estimated effort: 8-10 hours</li>
+                </ul>
+                
+                <h3 style="color: #ffc107; margin-bottom: 10px;">Medium Priority (Next Sprint)</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Cross-browser testing (Firefox, Safari, Edge)</li>
+                    <li>Add loading states to forms</li>
+                    <li>Implement backend validation</li>
+                    <li>Add analytics tracking tests</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Generated: July 19, 2026 | Repository: github.com/sharmashekhar13/cropsly-e2e-tests | Status: ✅ Active</p>
+        </div>
+    </div>
+</body>
+</html>

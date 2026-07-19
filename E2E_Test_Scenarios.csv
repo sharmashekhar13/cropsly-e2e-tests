@@ -1,0 +1,9 @@
+Scenario_ID,Scenario_Name,Description,Priority,Module,Test_Cases_Count,Status
+SC-001,Homepage Navigation,Verify homepage loads correctly and all navigation elements are functional,CRITICAL,UI/Navigation,5,Active
+SC-002,Services Exploration,Browse and verify all service offerings are displayed correctly,HIGH,Services,6,Active
+SC-003,Case Studies & Portfolio,View and interact with client case studies and portfolio items,HIGH,Portfolio,5,Active
+SC-004,Contact Form Journey,Submit contact/inquiry forms with various data combinations,CRITICAL,Forms,8,Active
+SC-005,Lead Capture Forms,Verify lead capture and email submission flows,HIGH,Lead_Generation,6,Active
+SC-006,Responsive Design Testing,Test website across multiple devices and screen sizes,HIGH,Responsive,7,Active
+SC-007,Performance & Load Times,Verify page load times and performance metrics,MEDIUM,Performance,4,Active
+SC-008,Footer & External Links,Verify footer content and external link functionality,MEDIUM,Navigation,4,Active
